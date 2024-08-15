@@ -1,16 +1,15 @@
-
 /* custom properties */
 /*********************/
 :root {
-  --clr-primary-dark:hsl(158, 36%, 37%);
-  --clr-primary-light:hsl(30, 38%, 92%);
+  --clr-primary-dark: hsl(158, 36%, 37%);
+  --clr-primary-light: hsl(30, 38%, 92%);
 
-  --clr-neural-dark:hsl(212, 21%, 14%);
-  --clr-neutral-grey:hsl(228, 12%, 48%);
-  --clr-neutral-light:hsl(0, 0%, 100%);
+  --clr-neural-dark: hsl(212, 21%, 14%);
+  --clr-neutral-grey: hsl(228, 12%, 48%);
+  --clr-neutral-light: hsl(0, 0%, 100%);
 
   --fw-regular: 500;
-  --fw-bold:700;
+  --fw-bold: 700;
 
   --ff-regular: "Montserrat", sans-serif;
   --ff-emphasis: "Fraunces", serif;
@@ -24,18 +23,21 @@
   margin: 0;
 }
 
-/* image cant overflow when resizing browser */
+/* reset image default settings so it cant overflow when resizing browser */
 /* remove the space under the img because img is an inline element by default */
-img, picture {
+img,
+picture {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+/* card CSS structure */
+/*****************/
 /* Mobile view */
-/* CSS structure */
 
-html, body {
+html,
+body {
   display: grid;
   place-content: center;
   height: 100%;
@@ -44,14 +46,28 @@ html, body {
 .wrapper {
   display: flex;
   flex-direction: column;
-  
+  width: 60%;
+  margin: auto;
+}
+
+/* if mobile viewport gets smaller */
+@media screen and (min-width:340px) and (max-width:400px) {
+  .wrapper {
+    width:70%;
+  }
+}
+@media screen and (min-width:250px) and (max-width:340px) {
+  .wrapper {
+    width:80%;
+  }
 }
 
 main {
   display: grid;
-  gap:1rem;
+  gap: 1rem;
 }
 
+/* align price options on horizontal axis */
 .priceOptions {
   display: flex;
   flex-direction: row;
@@ -59,19 +75,108 @@ main {
   align-items: center;
 }
 
+/* align button elements on main axis and position center */
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* Desktop view */
-@media screen and (min-width:800px) {
+@media screen and (min-width: 500px) {
   .wrapper {
     flex-direction: row;
-    width:600px;
+    width: 500px;
     margin: auto;
   }
 
-  /* make the 2 children equal width */
-  header, main {
+  /* make the 2 children equal width. Adding padding to one child will make it unequal*/
+  header,
+  main {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100%;
   }
-  
 }
+
+/* CSS styling */
+/***************/
+
+body {
+  background-color: var(--clr-primary-light);
+  font-size: 0.875rem;
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-grey);
+}
+
+.wrapper {
+  background-color: var(--clr-neutral-light);
+  border-radius: 0.625rem;
+}
+
+img {
+  border-start-start-radius: 0.625rem;
+  border-start-end-radius: 0.625rem;
+}
+
+@media screen and (min-width: 500px) {
+  img {
+    border-end-start-radius: 0.625rem;
+    border-start-end-radius:0;
+
+  }
+}
+
+.productType, h1, .productDescription, .priceOptions, button {
+  margin-inline-start: 1.5rem;
+  margin-inline-end: 1.5rem;
+}
+
+.productType {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  color: var(--clr-neutral-grey);
+  font-size: 0.75rem;
+  margin-block-start: 1.5rem;
+}
+
+h1 {
+color: var(--clr-neural-dark);
+font-family: var(--ff-emphasis);
+line-height: 1;
+font-weight: var(--fw-bold);
+}
+
+.productDescription {
+  line-height: 1.5;
+}
+
+.discountPrice {
+  color: var(--clr-primary-dark);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-emphasis);
+  font-size: 1.5rem;
+}
+
+.realPrice {
+  text-decoration: line-through;
+  font-size: 0.75rem;
+}
+
+button {
+  background-color: var(--clr-primary-dark);
+  color: var(--clr-neutral-light);
+  font-size:0.625rem;
+  font-weight: var(--fw-bold);
+  border: none;
+  border-radius:0.3rem;
+  padding: 10px 0;
+  margin-block-end: 1.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(177, 41%, 23%);
+}
+
