@@ -1,0 +1,34 @@
+
+/* custom properties */
+/*********************/
+:root {
+  --clr-primary-dark:hsl(158, 36%, 37%);
+  --clr-primary-light:hsl(30, 38%, 92%);
+
+  --clr-neural-dark:hsl(212, 21%, 14%);
+  --clr-neutral-grey:hsl(228, 12%, 48%);
+  --clr-neutral-light:hsl(0, 0%, 100%);
+
+  --fw-regular: 500;
+  --fw-bold:700;
+
+  --ff-regular: "Montserrat", sans-serif;
+  --ff-emphasis: "Fraunces", serif;
+}
+
+/*CSS reset settings */
+/*********************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* image cant overflow when resizing browser */
+/* remove the space under the img because img is an inline element by default */
+img, picture{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
