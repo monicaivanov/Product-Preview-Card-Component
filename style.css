@@ -26,9 +26,52 @@
 
 /* image cant overflow when resizing browser */
 /* remove the space under the img because img is an inline element by default */
-img, picture{
+img, picture {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+/* Mobile view */
+/* CSS structure */
+
+html, body {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+main {
+  display: grid;
+  gap:1rem;
+}
+
+.priceOptions {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Desktop view */
+@media screen and (min-width:800px) {
+  .wrapper {
+    flex-direction: row;
+    width:600px;
+    margin: auto;
+  }
+
+  /* make the 2 children equal width */
+  header, main {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+  }
+  
+}
